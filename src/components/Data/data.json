@@ -1,0 +1,304 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "attachments": [
+                {
+                    "imgPath": "https://example.com/image1.jpg"
+                }
+            ],
+            "salePrice": 250000,
+            "price": 270000,
+            "address": "123 Main St",
+            "city": "Brooklyn",
+            "country": "USA",
+            "description": "Beautiful house in Brooklyn",
+            "houseDetails": {
+                "beds": 3,
+                "bath": 2,
+                "garage": 1,
+                "area": 1500
+            }
+        },
+        {
+            "id": 2,
+            "attachments": [
+                {
+                    "imgPath": "https://example.com/image2.jpg"
+                }
+            ],
+            "salePrice": 320000,
+            "price": 350000,
+            "address": "456 Elm St",
+            "city": "Queens",
+            "country": "USA",
+            "description": "Spacious family home",
+            "houseDetails": {
+                "beds": 4,
+                "bath": 3,
+                "garage": 2,
+                "area": 2000
+            }
+        },
+        {
+            "id": 3,
+            "attachments": [
+                {
+                    "imgPath": "https://example.com/image3.jpg"
+                }
+            ],
+            "salePrice": 450000,
+            "price": 480000,
+            "address": "789 Oak St",
+            "city": "Manhattan",
+            "country": "USA",
+            "description": "Luxurious apartment in Manhattan",
+            "houseDetails": {
+                "beds": 2,
+                "bath": 2,
+                "garage": 0,
+                "area": 1200
+            }
+        },
+        {
+            "id": 4,
+            "attachments": [
+                {
+                    "imgPath": "https://example.com/image4.jpg"
+                }
+            ],
+            "salePrice": 280000,
+            "price": 300000,
+            "address": "101 Pine St",
+            "city": "Bronx",
+            "country": "USA",
+            "description": "Cozy home in Bronx",
+            "houseDetails": {
+                "beds": 3,
+                "bath": 2,
+                "garage": 1,
+                "area": 1400
+            }
+        },
+        {
+            "id": 5,
+            "attachments": [
+                {
+                    "imgPath": "https://example.com/image5.jpg"
+                }
+            ],
+            "salePrice": 550000,
+            "price": 580000,
+            "address": "202 Maple St",
+            "city": "Staten Island",
+            "country": "USA",
+            "description": "Spacious villa in Staten Island",
+            "houseDetails": {
+                "beds": 5,
+                "bath": 4,
+                "garage": 3,
+                "area": 3000
+            }
+        },
+        {
+            "id": 6,
+            "attachments": [
+                {
+                    "imgPath": "https://example.com/image6.jpg"
+                }
+            ],
+            "salePrice": 375000,
+            "price": 400000,
+            "address": "303 Cedar St",
+            "city": "Brooklyn",
+            "country": "USA",
+            "description": "Modern home in Brooklyn",
+            "houseDetails": {
+                "beds": 3,
+                "bath": 2,
+                "garage": 1,
+                "area": 1600
+            }
+        },
+        {
+            "id": 7,
+            "attachments": [
+                {
+                    "imgPath": "https://example.com/image7.jpg"
+                }
+            ],
+            "salePrice": 600000,
+            "price": 630000,
+            "address": "404 Birch St",
+            "city": "Queens",
+            "country": "USA",
+            "description": "Luxurious house in Queens",
+            "houseDetails": {
+                "beds": 5,
+                "bath": 4,
+                "garage": 2,
+                "area": 3500
+            }
+        },
+        {
+            "id": 8,
+            "attachments": [
+                {
+                    "imgPath": "https://example.com/image8.jpg"
+                }
+            ],
+            "salePrice": 290000,
+            "price": 320000,
+            "address": "505 Willow St",
+            "city": "Manhattan",
+            "country": "USA",
+            "description": "Cozy apartment in Manhattan",
+            "houseDetails": {
+                "beds": 2,
+                "bath": 1,
+                "garage": 0,
+                "area": 1100
+            }
+        },
+        {
+            "id": 9,
+            "attachments": [
+                {
+                    "imgPath": "https://example.com/image9.jpg"
+                }
+            ],
+            "salePrice": 410000,
+            "price": 430000,
+            "address": "606 Poplar St",
+            "city": "Bronx",
+            "country": "USA",
+            "description": "Spacious house in Bronx",
+            "houseDetails": {
+                "beds": 4,
+                "bath": 3,
+                "garage": 1,
+                "area": 2100
+            }
+        },
+        {
+            "id": 10,
+            "attachments": [
+                {
+                    "imgPath": "https://example.com/image10.jpg"
+                }
+            ],
+            "salePrice": 510000,
+            "price": 540000,
+            "address": "707 Cypress St",
+            "city": "Staten Island",
+            "country": "USA",
+            "description": "Luxury villa in Staten Island",
+            "houseDetails": {
+                "beds": 6,
+                "bath": 5,
+                "garage": 3,
+                "area": 4000
+            }
+        },
+        {
+            "id": 11,
+            "attachments": [
+                {
+                    "imgPath": "https://example.com/image11.jpg"
+                }
+            ],
+            "salePrice": 320000,
+            "price": 340000,
+            "address": "808 Cherry St",
+            "city": "Brooklyn",
+            "country": "USA",
+            "description": "Modern apartment in Brooklyn",
+            "houseDetails": {
+                "beds": 3,
+                "bath": 2,
+                "garage": 1,
+                "area": 1500
+            }
+        },
+        {
+            "id": 12,
+            "attachments": [
+                {
+                    "imgPath": "https://example.com/image12.jpg"
+                }
+            ],
+            "salePrice": 220000,
+            "price": 240000,
+            "address": "909 Spruce St",
+            "city": "Queens",
+            "country": "USA",
+            "description": "Cozy home in Queens",
+            "houseDetails": {
+                "beds": 2,
+                "bath": 1,
+                "garage": 0,
+                "area": 1000
+            }
+        },
+        {
+            "id": 13,
+            "attachments": [
+                {
+                    "imgPath": "https://example.com/image13.jpg"
+                }
+            ],
+            "salePrice": 450000,
+            "price": 470000,
+            "address": "1010 Fir St",
+            "city": "Manhattan",
+            "country": "USA",
+            "description": "Spacious apartment in Manhattan",
+            "houseDetails": {
+                "beds": 4,
+                "bath": 3,
+                "garage": 1,
+                "area": 2000
+            }
+        },
+        {
+            "id": 14,
+            "attachments": [
+                {
+                    "imgPath": "https://example.com/image14.jpg"
+                }
+            ],
+            "salePrice": 380000,
+            "price": 400000,
+            "address": "1111 Cedar St",
+            "city": "Bronx",
+            "country": "USA",
+            "description": "Family house in Bronx",
+            "houseDetails": {
+                "beds": 3,
+                "bath": 2,
+                "garage": 1,
+                "area": 1600
+            }
+        },
+        {
+            "id": 15,
+            "attachments": [
+                {
+                    "imgPath": "https://example.com/image15.jpg"
+                }
+            ],
+            "salePrice": 290000,
+            "price": 310000,
+            "address": "1212 Oak St",
+            "city": "Staten Island",
+            "country": "USA",
+            "description": "Charming villa in Staten Island",
+            "houseDetails": {
+                "beds": 3,
+                "bath": 2,
+                "garage": 2,
+                "area": 1800
+            }
+        }
+    ]
+}
