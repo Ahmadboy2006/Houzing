@@ -1,6 +1,6 @@
 import React, {useRef, useState, useEffect} from 'react';
 import { Carousel } from 'antd';
-import {Container, TitleRec, MinTitleRec, Blur, Arrow } from './style.js';
+import {Container, TitleRec, MinTitleRec, Arrow } from './style.js';
 import HousesCard from '../../HousesCard/index.jsx';
 import data from '../../Data/dataCategory.js';
 

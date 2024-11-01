@@ -1,13 +1,7 @@
-import styled, {css} from "styled-components";
+import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { ReactComponent as BarsIcon } from "../../assets/icons/bars.svg";
 import { ReactComponent as LogIcon } from "../../assets/icons/login.svg";
-
-const breakpoints = {
-  mobile: '375px',
-  tablet: '1440px',
-  desktop: '1920px',
-};
 
 export const Container = styled.div``;
 export const Wrapper = styled.div`

@@ -6,7 +6,7 @@ import HouseCard from '../../HouseCard/index';
 import {getData as data} from '../../Data/data';
 
 function RecentProp() {
-  const [houseData, setHouseData] = useState(data);
+  const [houseData] = useState(data);
   
   const [width, setWidth] = useState(window.innerWidth);
 

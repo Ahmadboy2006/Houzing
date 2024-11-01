@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Arrow, Container, Blur, TitleRec, MinTitleRec } from './style';
+import { Arrow, Container, TitleRec, MinTitleRec } from './style';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
@@ -8,7 +8,7 @@ import HouseCard from '../../HouseCard/index';
 import {getData as data} from '../../Data/data';
 
 function Carousel() {
-  const [houseData, setHouseData] = useState(data);
+  const [houseData] = useState(data);
   const [width, setWidth] = useState(window.innerWidth);
 
   const settings = {

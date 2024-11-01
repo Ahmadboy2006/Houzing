@@ -36,7 +36,7 @@ function SignIn() {
                         <input className='Checkbox' type="checkbox" />
                         <SignBox.Box.Text>Remember me</SignBox.Box.Text>
                     </div>
-                    <a className='forgot' href="#">Forgot</a>
+                    <button className='forgot'>Forgot</button>
                 </SignBox.Box>
                 <Button onClick={signIn} type='primary' width='100%'>Login</Button>
                 <SignBox.Title center >Don't have an account yet?<br /><b>⬇</b></SignBox.Title>

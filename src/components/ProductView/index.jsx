@@ -64,13 +64,13 @@ function ProductView() {
         ],
     });
 
-    const [reviewData1, setReviewData1] = useState([
+    const [reviewData1] = useState([
         createReviewItem('Cleanliness'),
         createReviewItem('Communication'),
         createReviewItem('Check-in')
     ]);
 
-    const [reviewData2, setReviewData2] = useState([
+    const [reviewData2] = useState([
         createReviewItem('Accuracy'),
         createReviewItem('Location'),
         createReviewItem('Value')

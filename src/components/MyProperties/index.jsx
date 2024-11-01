@@ -3,7 +3,6 @@ import { Container, Content, Th, ActionBox, Edit, DeleteBox, Delete, Save } from
 import Footer from '../Footer';
 import MyPropCard from '../MyPropCard';
 import Data from '../Data/dataMyProp.js';
-import { removeData } from 'jquery';
 
 function MyProps() {
 
@@ -62,7 +61,7 @@ function MyProps() {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [width]);
 
   const onEdit = (index) => {
     setTempData(data[index])

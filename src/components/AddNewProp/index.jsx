@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Container, MainContainer, MainTitle, MainContent, Input, Map, MediaContent, AtsContent } from './style';
 import { Content } from '../MyProperties/style';
 import Footer from '../Footer';

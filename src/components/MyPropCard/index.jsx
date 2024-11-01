@@ -10,7 +10,6 @@ function MyPropCard({ data, edit, onTyping, tempDatas }) {
     useEffect(() => {
         setEditIndex(edit);
         setTempData(tempDatas)
-        console.log(data.id, editIndex);
     }, [edit, tempDatas]);
 
     return (

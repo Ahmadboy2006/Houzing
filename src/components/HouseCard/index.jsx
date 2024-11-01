@@ -13,7 +13,6 @@ export const HouseCard = ({ data = {} }) => {
   } = data;
 
   const {
-    address,
     city,
     country
   } = location[0] || {};
