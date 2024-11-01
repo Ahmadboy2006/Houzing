@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { navbar } from '../utils/navbar';
 import Navbar from '../components/Navbar/navbar';
+import NotPage from "../pages/notFound";
 
 function Index() {
   return (
@@ -11,6 +12,7 @@ function Index() {
           <Route key={id} path={path} element={element} />
         ))}
       </Route>
+      <Route path='*' element={<NotPage />} />
     </Routes>
   );
 }

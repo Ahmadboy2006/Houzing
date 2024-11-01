@@ -14,7 +14,7 @@ function Navbar() {
   }
 
   const register = ()=>{
-    window.location.href = '/register';
+    window.location.href = '/Register';
   }
 
   return (

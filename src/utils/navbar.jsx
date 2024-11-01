@@ -8,7 +8,6 @@ import MyProps from '../pages/MyProps/Index';
 import Register from '../pages/Register/Index';
 import SignIn from '../pages/SignIn/Index';
 import ProductViewPage from '../pages/productView/Index';
-// import NotPage from "../pages/notFound";
 
 export const navbar = [
     {
@@ -30,7 +29,7 @@ export const navbar = [
     {
         id: uuidv4(),
         title: "",
-        path: "*",
+        path: "/contacts",
         element: <Contacts/>,
         private: false,
         hidden: true,
