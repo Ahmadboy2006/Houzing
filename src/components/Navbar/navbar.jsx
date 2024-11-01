@@ -29,7 +29,7 @@ function Navbar() {
         </Section>
         <Section hideNavbar=' ' showNav={state}>
           <h1 onClick={showNavbar}>x</h1>
-          <LinkSite to={"/home"}>Home</LinkSite>
+          <LinkSite to={"/"}>Home</LinkSite>
           <LinkSite to={"/Properties"}>Properties</LinkSite>
           <LinkSite to={"/Contacts"}>Contacts</LinkSite>
           <LinkSite to={"/favourites"}>Favourites</LinkSite>

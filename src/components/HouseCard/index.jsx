@@ -8,11 +8,12 @@ export const HouseCard = ({ data = {} }) => {
     location = [],
     propDetails = [],
     salePrice,
-    description
+    description,
+    street
   } = data;
 
   const {
-    street,
+    address,
     city,
     country
   } = location[0] || {};
@@ -37,7 +38,7 @@ export const HouseCard = ({ data = {} }) => {
     }
   };
 
-  const onView = (value) => {
+  const view = (value) => {
     localStorage.removeItem('viewData');
     localStorage.setItem('viewData', JSON.stringify(value));
     window.location.href = '/productview';
@@ -82,10 +83,10 @@ export const HouseCard = ({ data = {} }) => {
         </Details.Item>
         <Details.Item row>
           <IconBg>
-            <Icons.Resize onClick={() => onView(data)} clck={isLiked} />
+            <Icons.Resize onClick={() => view(data)} clck={isLiked} />
           </IconBg>
           <IconBg onClick={like} clck={isLiked} >
-            <Icons.Love  clck={isLiked} />
+            <Icons.Love clck={isLiked} />
           </IconBg>
         </Details.Item>
       </Content>
