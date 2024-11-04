@@ -32,7 +32,7 @@ function SignIn() {
                 <SignBox.Item ref={login} placeholder='Ali Tufa...' />
                 <SignBox.Item ref={password} placeholder='Password' />
                 <SignBox.Box>
-                    <div className='flex1'>
+                    <div className='flex3'>
                         <input className='Checkbox' type="checkbox" />
                         <SignBox.Box.Text>Remember me</SignBox.Box.Text>
                     </div>

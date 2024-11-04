@@ -175,6 +175,11 @@ body {
     color: #fff;
 }
 
+.forgot{
+    width: 100px;
+    height: 30px;
+}
+
 .flex {
     display: flex;
     gap: 25px;
