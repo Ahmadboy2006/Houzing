@@ -35,7 +35,7 @@ function Navbar() {
           <LinkSite to={"/favourites"}>Favourites</LinkSite>
         </Section>
         <Section >
-          <LoginIcon></LoginIcon>
+          <LoginIcon onClick={register}></LoginIcon>
           <Button onClick={register} login=' ' type='dark'>Login</Button>
         </Section>
       </Wrapper>

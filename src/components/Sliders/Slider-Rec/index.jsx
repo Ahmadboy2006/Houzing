@@ -18,6 +18,7 @@ function Carousel() {
     slidesToScroll: 3,
     autoplay: true,
     dots: false,
+    arrows: false,
     responsive: [
       {
         breakpoint: 1350,
