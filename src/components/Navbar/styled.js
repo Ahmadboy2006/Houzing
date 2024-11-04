@@ -19,6 +19,7 @@ export const Wrapper = styled.div`
   z-index: 1000;
 `;
 export const Section = styled.div`
+  height: ${({hideNavbar}) => hideNavbar ? '100vh' : 'auto'};
   color: white;
   display: flex;
   align-items: center;
@@ -30,8 +31,7 @@ export const Section = styled.div`
   }
   @media screen and (max-width: 1080px){
     z-index: 999;
-    width: ${({hideNavbar}) => hideNavbar && '115%'};
-    height: ${({hideNavbar}) => hideNavbar && '710px'};
+    width: ${({hideNavbar}) => hideNavbar && '115vw'};
     position: ${({hideNavbar}) => hideNavbar ? 'absolute':' '};
     flex-direction: ${({hideNavbar}) => hideNavbar && 'column'};
     background-color: ${({hideNavbar}) => hideNavbar && 'white'};
