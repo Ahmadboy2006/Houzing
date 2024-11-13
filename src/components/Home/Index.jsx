@@ -12,7 +12,7 @@ import Testimonials from "../Sliders/Slider-Test";
 import Footer from "../Footer";
 import { Container as Box } from "../Properties/style";
 import HouseCard from "../HouseCard";
-import {getData as data} from '../Data/data';
+import { getData } from '../Data/data';
 
 function Home() {
 
@@ -22,7 +22,7 @@ function Home() {
 
   const [box, setBox] = useState(false);
 
-  const [houseData, setHouseData] = useState(data)
+  const [houseData, setHouseData] = useState(getData())
 
   const toggleAdvanced = () => {
     setState((prevState) => ({
@@ -37,20 +37,33 @@ function Home() {
       return;
     }
 
-    let SortedData = data.filter((house) => {
+    console.log("sortData:", sortData);
+    console.log("getData:", getData());
+
+
+    let SortedData = getData().filter((house) => {
+      const location = house.location[0] || {};
+      const propDetails = house.propDetails[0] || {};
+      
+      // Konsolga chiqarib, barcha qiymatlarni tekshiring
+      console.log("house:", house);
+      console.log("location:", location);
+      console.log("propDetails:", propDetails);
+    
       return (
-        (!sortData.city || house.city.toLowerCase().includes(sortData.city.toLowerCase())) &&
-        (!sortData.country || house.country.toLowerCase().includes(sortData.country.toLowerCase())) &&
+        (!sortData.city || location.city.toLowerCase().includes(sortData.city.toLowerCase())) &&
+        (!sortData.country || location.country.toLowerCase().includes(sortData.country.toLowerCase())) &&
         (!sortData.description || house.description.toLowerCase().includes(sortData.description.toLowerCase())) &&
-        (!sortData.zip || house.zipcode.toLowerCase().includes(sortData.zip.toLowerCase())) &&
-        (!sortData.rooms || house.houseDetails.beds >= parseInt(sortData.rooms)) &&
-        (!sortData.size || house.houseDetails.area >= parseInt(sortData.size)) &&
-        (!sortData.minPrice || house.price >= parseInt(sortData.minPrice)) &&
-        (!sortData.maxPrice || house.price <= parseInt(sortData.maxPrice))
+        (!sortData.zip || location.zipcode.toLowerCase().includes(sortData.zip.toLowerCase())) &&
+        (!sortData.rooms || propDetails.beds >= parseInt(sortData.rooms)) &&
+        (!sortData.size || propDetails.area >= parseInt(sortData.size)) &&
+        (!sortData.minPrice || house.salePrice >= parseInt(sortData.minPrice)) &&
+        (!sortData.maxPrice || house.salePrice <= parseInt(sortData.maxPrice))
       );
-    });
+    });    
     setHouseData(SortedData);
-    setBox(sortData.length > 0)
+    console.log(SortedData);
+    setBox(SortedData.length > 0)
   };
 
   return (
