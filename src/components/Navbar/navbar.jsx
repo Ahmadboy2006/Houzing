@@ -29,10 +29,10 @@ function Navbar() {
         </Section>
         <Section hideNavbar=' ' showNav={state}>
           <h1 onClick={showNavbar}>x</h1>
-          <LinkSite to={"/"}>Home</LinkSite>
-          <LinkSite to={"/Properties"}>Properties</LinkSite>
-          <LinkSite to={"/Contacts"}>Contacts</LinkSite>
-          <LinkSite to={"/favourites"}>Favourites</LinkSite>
+          <LinkSite onClick={showNavbar} to={"/"}>Home</LinkSite>
+          <LinkSite onClick={showNavbar} to={"/Properties"}>Properties</LinkSite>
+          <LinkSite onClick={showNavbar} to={"/Contacts"}>Contacts</LinkSite>
+          <LinkSite onClick={showNavbar} to={"/favourites"}>Favourites</LinkSite>
         </Section>
         <Section >
           <LoginIcon onClick={register}></LoginIcon>
