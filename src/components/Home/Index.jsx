@@ -37,18 +37,9 @@ function Home() {
       return;
     }
 
-    console.log("sortData:", sortData);
-    console.log("getData:", getData());
-
-
     let SortedData = getData().filter((house) => {
       const location = house.location[0] || {};
       const propDetails = house.propDetails[0] || {};
-      
-      // Konsolga chiqarib, barcha qiymatlarni tekshiring
-      console.log("house:", house);
-      console.log("location:", location);
-      console.log("propDetails:", propDetails);
     
       return (
         (!sortData.city || location.city.toLowerCase().includes(sortData.city.toLowerCase())) &&
