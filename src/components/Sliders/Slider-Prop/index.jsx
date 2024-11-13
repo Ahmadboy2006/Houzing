@@ -7,7 +7,6 @@ import {getData as data} from '../../Data/data';
 
 function RecentProp() {
   const [houseData] = useState(data);
-  
   const [width, setWidth] = useState(window.innerWidth);
 
     useEffect(() => {

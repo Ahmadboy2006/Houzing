@@ -1,15 +1,25 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Arrow, Container, TitleRec, MinTitleRec } from './style';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from 'react-slick';
+import { Carousel as Slider } from 'antd'
 
 import HouseCard from '../../HouseCard/index';
-import {getData as data} from '../../Data/data';
+import { getData as data } from '../../Data/data';
 
 function Carousel() {
   const [houseData] = useState(data);
   const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const settings = {
     infinite: true,
@@ -48,17 +58,7 @@ function Carousel() {
     if (name === 'left') slider.current.prev();
   };
 
-  useEffect(() => {
-    const handleResize = () => {
-      setWidth(window.innerWidth);
-    };
 
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
 
   return (
     <Container>
