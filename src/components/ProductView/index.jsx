@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Footer from '../Footer/index';
 import { Container, Header, WriteReview, Detailss, IconBox, Location, PropDetails, Star } from './style';
 import { IconBg, Icons } from '../HouseCard/style';
@@ -11,6 +11,8 @@ import Img4 from '../../assets/img/viewImg4.png';
 import Img5 from '../../assets/img/viewImg5.jpg';
 import Avatar from '../../assets/img/avatar1.png';
 import locationImg from '../../assets/img/location.png';
+import { Carousel } from 'antd';
+import { Arrow } from '../Sliders/Slider-Prop/style';
 
 function ProductView() {
 
@@ -27,7 +29,7 @@ function ProductView() {
         }
     }, []);
     const [data, setData] = useState({});
-    
+
     const {
         attachments = [],
         location = [],
@@ -42,7 +44,7 @@ function ProductView() {
     const { id, price, size, yearBuild, beds, baths, garages, garageSize, type, status } = propDetails[0] || {};
 
     const [isLiked, setIsLiked] = useState(localStorage.getItem(`${id}`) !== null);
-    
+
     const like = () => {
         setIsLiked(!isLiked);
         if (!isLiked) {
@@ -51,8 +53,8 @@ function ProductView() {
             localStorage.removeItem(`${id}`);
         }
     };
-    
-    
+
+
     const createReviewItem = (name) => ({
         name,
         stars: [
@@ -76,11 +78,21 @@ function ProductView() {
         createReviewItem('Value')
     ]);
 
+    const DocItem = ({ filename }) => (
+        <Header.Content.Doc.Box.Item>
+            <div className="flex2">
+                <Header.Content.Doc.Box.Item.Icon />
+                <div className="info">{filename}</div>
+            </div>
+            <Header.Content.Desc.Section.Link dow href="#">
+                Download
+            </Header.Content.Desc.Section.Link>
+        </Header.Content.Doc.Box.Item>
+    );
+
     const onStar = (id) => {
 
     }
-
-
 
     const renderDetails = (label, value) => (
         <Detailss.Item>
@@ -88,121 +100,159 @@ function ProductView() {
         </Detailss.Item>
     );
 
+    // slider-settings
+
+    const sliderData = [Img1, Img2, Img3, Img4, Img5]
+
+    const [width, setWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setWidth(window.innerWidth);
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    const settings = {
+        infinite: true,
+        speed: 500,
+        slidesToShow: width < 900 ? 1 : 2,
+        slidesToScroll: 1,
+        autoplay: true,
+        dots: false
+    };
+
+    const slider = useRef();
+
+    const onMove = ({
+        target: {
+            dataset: { name },
+        },
+    }) => {
+        if (name === 'right') slider.current.next();
+        if (name === 'left') slider.current.prev();
+    };
+
     return (
         <>
             <Container>
                 <Header>
-                    <Header.ImgBox>
-                        <Header.ImgBox.MainImg src={Img1} />
-                        <Header.ImgBox.OtherImg src={Img2} one />
-                        <Header.ImgBox.OtherImg src={Img3} two />
-                        <Header.ImgBox.OtherImg src={Img4} three />
-                        <Header.ImgBox.OtherImg src={Img5} four />
-                    </Header.ImgBox>
-                    <Header.Content>
-                        <Header.Content.Main>
-                            <Header.Content.Main.St>
-                                <div className='subTitlee inline'>{description}</div>
-                                <div className="infoo">{street && city && country ? `${street}, ${city}, ${country}` : 'Quincy St, Brooklyn, NY, USA'}</div>
-                                <Detailss>
-                                    <Detailss.Item>
-                                        <Icons.Bed />
-                                        <div className="info">{beds || 0} Bed</div>
-                                    </Detailss.Item>
-                                    <Detailss.Item>
-                                        <Icons.Bath />
-                                        <div className="info">{baths || 0} Bath</div>
-                                    </Detailss.Item>
-                                    <Detailss.Item>
-                                        <Icons.Garage />
-                                        <div className="info">{garages || 0} Garage</div>
-                                    </Detailss.Item>
-                                    <Detailss.Item>
-                                        <Icons.Ruler />
-                                        <div className="info">{size || 0} Sq Ft</div>
-                                    </Detailss.Item>
-                                    <Detailss.Item>
-                                        <Icons.Calendar />
-                                        <div className="info">Year Built: {yearBuild || 0}</div>
-                                    </Detailss.Item>
-                                </Detailss>
-                            </Header.Content.Main.St>
-                            <Header.Content.Main.Nd>
-                                <div className='flex'>
-                                    <Detailss.Item gap>
-                                        <IconBox>
-                                            <IconBg>
-                                                <Icons.Share />
-                                            </IconBg>
-                                            <div className='info'>Share</div>
-                                        </IconBox>
-                                        <IconBox>
-                                            <IconBg onClick={like} clck={isLiked}>
-                                                <Icons.Love clck={isLiked} view />
-                                            </IconBg>
-                                            <div className='info'>Save</div>
-                                        </IconBox>
-                                    </Detailss.Item>
-                                </div>
-                                <Detailss.Item>
-                                    <div className="info relative">${price || 0}/mo<Details.Item.Line /></div>
-                                    <div className="priceTitle">${salePrice || 0}/mo</div>
-                                </Detailss.Item>
-                                <div className='info'></div>
-                            </Header.Content.Main.Nd>
-                        </Header.Content.Main>
-                        <Header.Content.Desc>
-                            <Header.Content.Desc.Title>Description</Header.Content.Desc.Title>
-                            <Header.Content.Desc.Section>
-                                <div className='info'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita quo a quae quam omnis! Maxime modi dolorum quod excepturi blanditiis sapiente odio atque porro totam necessitatibus optio voluptatum sed, suscipit delectus est laudantium temporibus dolorem praesentium. Facere nam expedita impedit itaque qui magnam natus, veritatis cumque nesciunt dolorem excepturi reiciendis, non delectus nostrum ad ducimus modi deleniti?</div>
-                                <div className='info'> Maxime modi dolorum quod excepturi blanditiis sapiente odio atque porro totam necessitatibus optio voluptatum sed, suscipit delectus est laudantium temporibus dolorem praesentium. Facere nam expedita impedit itaque qui magnam natus, veritatis cumque nesciunt dolorem excepturi reiciendis, non delectus nostrum ad ducimus modi deleniti?</div>
-                                <Header.Content.Desc.Section.Link href='#'>Show more</Header.Content.Desc.Section.Link>
-                            </Header.Content.Desc.Section>
-                        </Header.Content.Desc>
-                        <Header.Content.Doc>
-                            <Header.Content.Desc.Title>Documents</Header.Content.Desc.Title>
-                            <Header.Content.Doc.Box>
-                                <Header.Content.Doc.Box.Item>
-                                    <div className='flex2'>
-                                        <Header.Content.Doc.Box.Item.Icon />
-                                        <div className='info'>test_property.pdf</div>
+                    {width > 1080 &&
+                        <Header.ImgBox>
+                            <Header.ImgBox.MainImg src={Img1} />
+                            <Header.ImgBox.OtherImg src={Img2} one />
+                            <Header.ImgBox.OtherImg src={Img3} two />
+                            <Header.ImgBox.OtherImg src={Img4} three />
+                            <Header.ImgBox.OtherImg src={Img5} four />
+                        </Header.ImgBox>
+                    }
+                    {width <= 1080 &&
+                        <>
+                            <Carousel className='carousel-view' ref={slider} {...settings}>
+                                {sliderData.map((value, index) => (
+                                    <div className='carousel-item-view' key={index}>
+                                        <Header.ImgBox.MainImg src={value} key={index} />
                                     </div>
-                                    <Header.Content.Desc.Section.Link dow href='#'>Download</Header.Content.Desc.Section.Link>
-                                </Header.Content.Doc.Box.Item>
-                                <Header.Content.Doc.Box.Item>
-                                    <div className='flex2'>
-                                        <Header.Content.Doc.Box.Item.Icon />
-                                        <div className='info'>test_property.pdf</div>
+                                ))}
+                            </Carousel>
+                            <Arrow arrowRec=' ' onClick={onMove} data-name='left' left />
+                            <Arrow arrowRec=' ' onClick={onMove} data-name='right' />
+                        </>
+                    }
+                    <div className="flex4">
+                        <Header.Content>
+                            <Header.Content.Main>
+                                <Header.Content.Main.St>
+                                    <div className='subTitlee'>{description}</div>
+                                    <div className="infoo">{street && city && country ? `${street}, ${city}, ${country}` : 'Quincy St, Brooklyn, NY, USA'}</div>
+                                    <Detailss>
+                                        <Detailss.Item>
+                                            <Icons.Bed />
+                                            <div className="info">{beds || 0} Bed</div>
+                                        </Detailss.Item>
+                                        <Detailss.Item>
+                                            <Icons.Bath />
+                                            <div className="info">{baths || 0} Bath</div>
+                                        </Detailss.Item>
+                                        <Detailss.Item>
+                                            <Icons.Garage />
+                                            <div className="info">{garages || 0} Garage</div>
+                                        </Detailss.Item>
+                                        <Detailss.Item>
+                                            <Icons.Ruler />
+                                            <div className="info">{size || 0} Sq Ft</div>
+                                        </Detailss.Item>
+                                        <Detailss.Item>
+                                            <Icons.Calendar />
+                                            <div className="info">Year Built: {yearBuild || 0}</div>
+                                        </Detailss.Item>
+                                    </Detailss>
+                                </Header.Content.Main.St>
+                                <Header.Content.Main.Nd>
+                                    <div className='flex'>
+                                        <Detailss.Item gap>
+                                            <IconBox>
+                                                <IconBg>
+                                                    <Icons.Share />
+                                                </IconBg>
+                                                <div className='info'>Share</div>
+                                            </IconBox>
+                                            <IconBox>
+                                                <IconBg onClick={like} clck={isLiked}>
+                                                    <Icons.Love clck={isLiked} view />
+                                                </IconBg>
+                                                <div className='info'>Save</div>
+                                            </IconBox>
+                                        </Detailss.Item>
                                     </div>
-                                    <Header.Content.Desc.Section.Link dow href='#'>Download</Header.Content.Desc.Section.Link>
-                                </Header.Content.Doc.Box.Item>
-                                <Header.Content.Doc.Box.Item>
-                                    <div className='flex2'>
-                                        <Header.Content.Doc.Box.Item.Icon />
-                                        <div className='info'>test_property.pdf</div>
-                                    </div>
-                                    <Header.Content.Desc.Section.Link dow href='#'>Download</Header.Content.Desc.Section.Link>
-                                </Header.Content.Doc.Box.Item>
-                            </Header.Content.Doc.Box>
-                        </Header.Content.Doc>
-                    </Header.Content>
-                    <Header.OwnerHouse>
-                        <Header.OwnerHouse.Box>
-                            <Header.OwnerHouse.Box.Avatar src={Avatar} />
-                            <Header.OwnerHouse.Box.Name>Darrel Steward</Header.OwnerHouse.Box.Name>
-                            <Header.OwnerHouse.Box.Number>(123)456-7890</Header.OwnerHouse.Box.Number>
-                        </Header.OwnerHouse.Box>
-                        <Input placeholder='Name' width='100' />
-                        <Input placeholder='Phone' width='100' />
-                        <Input placeholder='Email' width='100' />
-                        <Header.Content.Desc.Title message>Message</Header.Content.Desc.Title>
-                        <Header.OwnerHouse.MessageBox>Hello, I am interested in [New Apartment]</Header.OwnerHouse.MessageBox>
-                        <Header.OwnerHouse.SubmitBox>
-                            <Header.OwnerHouse.SubmitBox.Input type='checkbox' />
-                            <Header.OwnerHouse.SubmitBox.Text>By submitting this form I agree to Terms of Use</Header.OwnerHouse.SubmitBox.Text>
-                        </Header.OwnerHouse.SubmitBox>
-                        <Button width='232px' type='primary'>Send request</Button>
-                    </Header.OwnerHouse>
+                                    <Detailss.Item column>
+                                        <div className="info relative">${price || 0}/mo<Details.Item.Line /></div>
+                                        <div className="priceTitle">${salePrice || 0}/mo</div>
+                                    </Detailss.Item>
+                                    <div className='info'></div>
+                                </Header.Content.Main.Nd>
+                            </Header.Content.Main>
+                            <Header.Content.Desc>
+                                <Header.Content.Desc.Title>Description</Header.Content.Desc.Title>
+                                <Header.Content.Desc.Section>
+                                    <div className='info'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita quo a quae quam omnis! Maxime modi dolorum quod excepturi blanditiis sapiente odio atque porro totam necessitatibus optio voluptatum sed, suscipit delectus est laudantium temporibus dolorem praesentium. Facere nam expedita impedit itaque qui magnam natus, veritatis cumque nesciunt dolorem excepturi reiciendis, non delectus nostrum ad ducimus modi deleniti?</div>
+                                    <div className='info'> Maxime modi dolorum quod excepturi blanditiis sapiente odio atque porro totam necessitatibus optio voluptatum sed, suscipit delectus est laudantium temporibus dolorem praesentium. Facere nam expedita impedit itaque qui magnam natus, veritatis cumque nesciunt dolorem excepturi reiciendis, non delectus nostrum ad ducimus modi deleniti?</div>
+                                    <Header.Content.Desc.Section.Link href='#'>Show more</Header.Content.Desc.Section.Link>
+                                </Header.Content.Desc.Section>
+                            </Header.Content.Desc>
+                            <Header.Content.Doc>
+                                <Header.Content.Desc.Title>Documents</Header.Content.Desc.Title>
+                                <Header.Content.Doc.Box>
+                                    <Header.Content.Doc.Box>
+                                        <DocItem filename="test_property.pdf" />
+                                        <DocItem filename="another_property.pdf" />
+                                        <DocItem filename="third_property.pdf" />
+                                    </Header.Content.Doc.Box>
+                                </Header.Content.Doc.Box>
+                            </Header.Content.Doc>
+                        </Header.Content>
+                        <Header.OwnerHouse>
+                            <Header.OwnerHouse.Box>
+                                <Header.OwnerHouse.Box.Avatar src={Avatar} />
+                                <Header.OwnerHouse.Box.Name>Darrel Steward</Header.OwnerHouse.Box.Name>
+                                <Header.OwnerHouse.Box.Number>(123)456-7890</Header.OwnerHouse.Box.Number>
+                            </Header.OwnerHouse.Box>
+                            <Input placeholder='Name' width='100' />
+                            <Input placeholder='Phone' width='100' />
+                            <Input placeholder='Email' width='100' />
+                            <Header.Content.Desc.Title message>Message</Header.Content.Desc.Title>
+                            <Header.OwnerHouse.MessageBox>Hello, I am interested in [New Apartment]</Header.OwnerHouse.MessageBox>
+                            <Header.OwnerHouse.SubmitBox>
+                                <Header.OwnerHouse.SubmitBox.Input type='checkbox' />
+                                <Header.OwnerHouse.SubmitBox.Text>By submitting this form I agree to Terms of Use</Header.OwnerHouse.SubmitBox.Text>
+                            </Header.OwnerHouse.SubmitBox>
+                            <Button width='232px' type='primary'>Send request</Button>
+                        </Header.OwnerHouse>
+                    </div>
                 </Header>
                 <Location>
                     <Header.Content.Desc.Title>Location</Header.Content.Desc.Title>
@@ -285,11 +335,11 @@ function ProductView() {
                             ))}
                         </div>
                     </WriteReview.Content>
-                    <div className='flex2'>
-                        <Input placeholder='Name'></Input>
-                        <Input placeholder='Email'></Input>
+                    <div className='flex2-view'>
+                        <Input view1 placeholder='Name'></Input>
+                        <Input view1 placeholder='Email'></Input>
                     </div>
-                    <Input className='mb-20' width='100%' placeholder='Enter Your Message'></Input>
+                    <Input view className='mb-20' width='100%' placeholder='Enter Your Message'></Input>
                     <Button width='250'>Send your review</Button>
                 </WriteReview>
             </Container>

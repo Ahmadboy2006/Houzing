@@ -19,30 +19,27 @@ export const Wrapper = styled.div`
   z-index: 1000;
 `;
 export const Section = styled.div`
-  height: ${({hideNavbar}) => hideNavbar ? '100vh' : 'auto'};
+  height: ${({showNav}) => showNav ? '100vh' : 'auto'};
   color: white;
   display: flex;
   align-items: center;
   display: ${({hideBars}) => hideBars ? 'none':'flex'};
   gap: ${({hideNavbar}) => hideNavbar ? '63px' : '7px'};
 
-  @media screen and (max-width: 1080px) {
-    display: ${({hideNavbar}) => hideNavbar ? 'none':'flex'};
-  }
   @media screen and (max-width: 1080px){
     z-index: 999;
-    width: ${({hideNavbar}) => hideNavbar && '115vw'};
-    position: ${({hideNavbar}) => hideNavbar ? 'absolute':' '};
-    flex-direction: ${({hideNavbar}) => hideNavbar && 'column'};
-    background-color: ${({hideNavbar}) => hideNavbar && 'white'};
-    display: ${({hideNavbar, showNav}) => hideNavbar && showNav ? 'none':'flex'};
-    top: ${({hideNavbar}) => hideNavbar ? '0px':' '};
-    left: ${({hideNavbar}) => hideNavbar && '-50px'};
-    justify-content: ${({hideNavbar}) => hideNavbar && 'center'};
+    width: ${({showNav}) => showNav && '115vw'};
+    position: ${({showNav}) => showNav ? 'absolute':' '};
+    flex-direction: ${({showNav}) => showNav && 'column'};
+    background-color: ${({showNav}) => showNav && 'white'};
+    display: ${({showNav1}) => showNav1 ? 'none':'flex'};
+    top: ${({showNav}) => showNav ? '0px':' '};
+    left: ${({showNav}) => showNav && '-50px'};
+    justify-content: ${({showNav}) => showNav && 'center'};
     h1{
-      position: ${({ hideNavbar }) => (hideNavbar && "absolute")};
-      left: ${({ hideNavbar }) => (hideNavbar && "75px")};
-      top: ${({ hideNavbar }) => (hideNavbar && "0px")};
+      position: ${({ showNav }) => (showNav && "absolute")};
+      left: ${({ showNav }) => (showNav && "75px")};
+      top: ${({ showNav }) => (showNav && "0px")};
       color: black;
       cursor: pointer;
       font-size: 25px;

@@ -11,7 +11,8 @@ export const Container = styled.div`
 export const Header = styled.div`
     width: 100%;
     min-height: 950px;
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 30px;
 `;
 
@@ -19,19 +20,8 @@ Header.ImgBox = styled.div`
     width: 100%;
     min-height: 400px;
     grid-column: 1 / span 4;
-    grid-row: 1;
     display: grid;
     gap: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    grid-template-rows: repeat(2, auto);
-
-    @media screen and (max-width: 768px) {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-
-    @media screen and (max-width: 480px) {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    }
 `;
 
 Header.ImgBox.MainImg = styled.img`
@@ -77,10 +67,8 @@ Header.ImgBox.OtherImg = styled.img`
 `;
 
 Header.Content = styled.div`
-    width: 74.6%;
+    width: 62%;
     min-height: 530px;
-    grid-column: 1 / span 4;
-    grid-row: 2 / span 3;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -88,6 +76,11 @@ Header.Content = styled.div`
     border-left: 0;
     border-right: 0;
     border-bottom: 1px solid rgba(230, 233, 236, 1);
+    margin-bottom: 40px;
+
+    @media screen and (max-width: 1080px){
+        width: 100%;
+    }
 `;
 
 Header.Content.Main = styled.div`
@@ -95,36 +88,47 @@ Header.Content.Main = styled.div`
     height: auto;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 `;
 
 Header.Content.Main.St = styled.div`
-    width: 60.9%;
+    width: 72%;
     min-height: 100px;
     height: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    @media screen and (max-width: 520px){
+        width: 100%;
+    }
 `;
 
 Header.Content.Main.Nd = styled.div`
-    width: 23.5%;
+    width: 25%;
     height: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: end;
+    @media screen and (max-width: 520px){
+        width: 100%;
+        align-items: start;
+        gap: 40px;
+    }
 `;
 
 export const Detailss = styled.div`
     width: 100%;
     height: 20px;
     display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
     justify-content: space-between;
     margin: 2.5rem 0 4.5rem 0;
 `;
 
 Detailss.Item = styled.div`
-    display: flex;
+    display: ${({column}) => column ? 'block' : 'flex'};
     gap: ${({gap}) => gap ? '25px' : '6px'};
     align-items: center;
 `;
@@ -198,8 +202,6 @@ Header.Content.Doc.Box.Item.Icon = styled(download)``;
 Header.OwnerHouse = styled.div`
     width: 300px;
     height: 476px;
-    grid-column: 4;
-    grid-row: 2 / span 3;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -296,6 +298,9 @@ export const Location = styled.div`
     border-left: 0;
     border-right: 0;
     border-bottom: 1px solid rgba(230, 233, 236, 1);
+    @media screen and (max-width: 1080px){
+        width: 100%;
+    }
 `;
 
 Location.Content = styled.div`
@@ -304,6 +309,7 @@ Location.Content = styled.div`
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    gap: 10px;
 `;
 
 Location.Content.Item = styled.div`
@@ -337,6 +343,9 @@ export const PropDetails = styled.div`
     border-left: 0;
     border-right: 0;
     border-bottom: 1px solid rgba(230, 233, 236, 1);
+    @media screen and (max-width: 1080px) {
+        width: 100%;
+    }
 `;
 
 PropDetails.Content = styled.div`
@@ -344,6 +353,14 @@ PropDetails.Content = styled.div`
     min-height: 152px;
     display: flex;
     justify-content: space-between;
+    @media screen and (max-width: 850px) {
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: space-around;
+    }
+    @media screen and (max-width: 400px) {
+        flex-direction: column;
+    }
 `;
 
 PropDetails.Content.Item = styled.div`
@@ -352,20 +369,29 @@ PropDetails.Content.Item = styled.div`
     flex-direction: column;
     justify-content: ${({sb}) => sb ? '' : 'space-between'};
     gap: ${({sb}) => sb && '25px'};
+    padding-bottom: 10px;
 `;
 
 export const WriteReview = styled.div`
     width: 74.6%;
     height: auto;
     margin-top: 50px;
+    @media screen and (max-width: 1080px){
+        width: 100%;
+    }
 `;
 
 WriteReview.Content = styled.div`
-    width: 80%;
+    width: 92%;
     height: auto;
     margin: 50px 0;
     display: flex;
     justify-content: space-between;
+    @media screen and (max-width: 900px){
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
 `;
 
 WriteReview.Content.Item = styled.div`

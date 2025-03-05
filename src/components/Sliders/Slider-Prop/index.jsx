@@ -26,7 +26,7 @@ function RecentProp() {
     slidesToShow: width < 900 ? 1 : width < 1350 ? 2 : 3 ,
     slidesToScroll: width < 900 ? 1 : width < 1350 ? 2 : 3,
     autoplay: true,
-    dots: false,
+    dots: false
   };
 
   const slider = useRef();

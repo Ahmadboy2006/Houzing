@@ -8,14 +8,14 @@
     --panelColor: #F6F8F9;
     --padding: 130px;
 
-    @media screen and (max-width: 600px) {
-        --padding: 80px;
+    @media screen and (max-width: 750px) {
+        --padding: 45px;
     }
 
     ;
 
     @media screen and (max-width: 570px) {
-        --padding: 30px;
+        --padding: 20px;
     }
 
     ;
@@ -49,8 +49,15 @@
     font-weight: 600;
     line-height: 32px;
     letter-spacing: -0.02em;
-    text-align: left;
     color: rgba(13, 38, 59, 1);
+
+    @media screen and (max-width: 800px) {
+        font-size: 20px;
+    }
+
+    @media screen and (max-width: 430px) {
+        font-size: 18px;
+    }
 }
 
 .priceTitle {
@@ -134,15 +141,30 @@ h1 {
     justify-content: center;
 }
 
-.carousel{
+.carousel {
     width: 88%;
     margin: 0 auto;
+
     @media screen and (max-width: 600px) {
-        width: 95%;
+        width: 100%;
     }
 }
 
-.carousel-item{
+.carousel-view {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.carousel-item-view img {
+    margin-right: 20px;
+
+    @media screen and (max-width: 899px) {
+        margin-right: 0px;
+    }
+}
+
+.carousel-item,
+.carousel-item-view {
     display: flex !important;
     justify-content: center;
 }
@@ -175,7 +197,7 @@ body {
     color: #fff;
 }
 
-.forgot{
+.forgot {
     width: 100px;
     height: 30px;
 }
@@ -193,16 +215,33 @@ body {
     justify-content: space-between;
 }
 
-.flex2{
+.flex2 {
     display: flex;
     justify-content: space-between;
     margin-bottom: 50px;
+}
+
+.flex2-view {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    @media screen and (max-width: 470px) {
+        margin-bottom: 0;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
 }
 
 .flex3 {
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+.flex4 {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .flex-Social {
@@ -232,11 +271,12 @@ b {
     position: relative;
 }
 
-.starBox{
+.starBox {
     display: flex;
     gap: 5px;
+    align-items: center;
 }
 
-.mb-20{
+.mb-20 {
     margin-bottom: 20px;
 }

@@ -7,10 +7,11 @@ import Button from "../Generic/Button/index";
 
 function Navbar() {
 
-  const [state, setState] = useState(true);
+  const [state, setState] = useState(false);
 
   const showNavbar = () => {
     setState(!state);
+    console.log(state);
   }
 
   const register = ()=>{
@@ -20,14 +21,14 @@ function Navbar() {
   return (
     <Container>
       <Wrapper>
-        <Section hideBars=' '>
+        <Section hideBars={true}>
           <Bars onClick={showNavbar}></Bars>
         </Section>
         <Section>
           <img className="logo" src={LogoSite} alt="" />
           <LogoTitle>Houzing</LogoTitle>
         </Section>
-        <Section hideNavbar=' ' showNav={state}>
+        <Section hideNavbar={true} showNav1={!state} showNav={state}>
           <h1 onClick={showNavbar}>x</h1>
           <LinkSite onClick={showNavbar} to={"/"}>Home</LinkSite>
           <LinkSite onClick={showNavbar} to={"/Properties"}>Properties</LinkSite>

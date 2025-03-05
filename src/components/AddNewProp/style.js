@@ -66,11 +66,11 @@ export const Input = styled.input`
         }
     }
     @media screen and (max-width: 920px){
-        width: ${({mini}) => mini ? '160px' : '90%'};
-        margin: 0 auto;
+        width: ${({mini, view1}) => mini ? '160px' : view1 ? '45%' : '90%'};
+        margin: ${({view}) => view ? '20px 0' : '0 auto'};
     }
     @media screen and (max-width: 470px){
-        width: ${({mini}) => mini && '80%'};
+        width: ${({mini, view1}) => mini ? '80%' : view1 ? '100%' : ''};
     }
     @media screen and (max-width: 470px){
         width: 100%;
