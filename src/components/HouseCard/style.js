@@ -132,7 +132,7 @@ export const MiniImg = styled.img`
     width: 42px;
     height: 42px;
     border-radius: 50%;
-    border: 4px solid #fff;
+    border: 2px solid #fff;
     position: absolute;
     right: 20px;
     top: 202px;
