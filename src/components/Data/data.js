@@ -1,12 +1,15 @@
 import SliderImg3 from '../../assets/img/slider1-1.jpg';
 import SliderImg1 from '../../assets/img/slider1-3.jpg';
 import SliderImg2 from '../../assets/img/slider1-4.jpg';
+import Avatar1 from '../../assets/img/avatar1.png';
+import Avatar2 from '../../assets/img/avatar2.png';
+import Avatar3 from '../../assets/img/avatar3.png';
 
 
 const data = [
   {
     homeIndex: 329,
-    attachments: [{ imgPath: SliderImg1 }],
+    attachments: [{ imgPath: SliderImg1, avatar: Avatar1 }],
     location: [{
       adress: '329 Main Street',
       street: 'Main St',
@@ -35,7 +38,7 @@ const data = [
   },
   {
     homeIndex: 421,
-    attachments: [{ imgPath: SliderImg2 }],
+    attachments: [{ imgPath: SliderImg2,avatar: Avatar2 }],
     location: [{
       street: 'Elm St',
       state: "Texas",
@@ -63,7 +66,7 @@ const data = [
   },
   {
     homeIndex: 582,
-    attachments: [{ imgPath: SliderImg3 }],
+    attachments: [{ imgPath: SliderImg3, avatar: Avatar3 }],
     location: [{
       street: 'Oak St',
       state: "Washington",
@@ -91,7 +94,7 @@ const data = [
   },
   {
     homeIndex: 110,
-    attachments: [{ imgPath: SliderImg1 }],
+    attachments: [{ imgPath: SliderImg1, avatar: Avatar1 }],
     location: [{
       street: 'Pine St',
       state: "Colorado",
@@ -119,7 +122,7 @@ const data = [
   },
   {
     homeIndex: 253,
-    attachments: [{ imgPath: SliderImg2 }],
+    attachments: [{ imgPath: SliderImg2, avatar: Avatar2 }],
     location: [{
       street: 'Maple St',
       state: "Florida",
@@ -147,7 +150,7 @@ const data = [
   },
   {
     homeIndex: 374,
-    attachments: [{ imgPath: SliderImg3 }],
+    attachments: [{ imgPath: SliderImg3, avatar: Avatar3 }],
     location: [{
       street: 'Cedar St',
       state: "Georgia",
@@ -175,7 +178,7 @@ const data = [
   },
   {
     homeIndex: 478,
-    attachments: [{ imgPath: SliderImg1 }],
+    attachments: [{ imgPath: SliderImg1, avatar: Avatar1 }],
     location: [{
       street: 'Birch St',
       state: "Illinois",
@@ -203,7 +206,7 @@ const data = [
   },
   {
     homeIndex: 198,
-    attachments: [{ imgPath: SliderImg2 }],
+    attachments: [{ imgPath: SliderImg2, avatar: Avatar2 }],
     location: [{
       street: 'Willow St',
       state: "New York",
@@ -231,7 +234,7 @@ const data = [
   },
   {
     homeIndex: 540,
-    attachments: [{ imgPath: SliderImg3 }],
+    attachments: [{ imgPath: SliderImg3, avatar: Avatar3 }],
     location: [{
       street: 'Poplar St',
       state: "Massachusetts",
@@ -259,7 +262,7 @@ const data = [
   },
   {
     homeIndex: 609,
-    attachments: [{ imgPath: SliderImg1 }],
+    attachments: [{ imgPath: SliderImg1, avatar: Avatar1 }],
     location: [{
       street: 'Cypress St',
       state: "California",
@@ -287,7 +290,7 @@ const data = [
   },
   {
     homeIndex: 325,
-    attachments: [{ imgPath: SliderImg2 }],
+    attachments: [{ imgPath: SliderImg2, avatar: Avatar2 }],
     location: [{
       street: 'Cherry St',
       state: "Florida",
@@ -315,7 +318,7 @@ const data = [
   },
   {
     homeIndex: 217,
-    attachments: [{ imgPath: SliderImg3 }],
+    attachments: [{ imgPath: SliderImg3, avatar: Avatar3 }],
     location: [{
       street: 'Spruce St',
       state: "Texas",

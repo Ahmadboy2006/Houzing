@@ -40,7 +40,7 @@ function Home() {
     let SortedData = getData().filter((house) => {
       const location = house.location[0] || {};
       const propDetails = house.propDetails[0] || {};
-    
+
       return (
         (!sortData.city || location.city.toLowerCase().includes(sortData.city.toLowerCase())) &&
         (!sortData.country || location.country.toLowerCase().includes(sortData.country.toLowerCase())) &&
@@ -51,7 +51,7 @@ function Home() {
         (!sortData.minPrice || house.salePrice >= parseInt(sortData.minPrice)) &&
         (!sortData.maxPrice || house.salePrice <= parseInt(sortData.maxPrice))
       );
-    });    
+    });
     setHouseData(SortedData);
     console.log(SortedData);
     setBox(SortedData.length > 0)

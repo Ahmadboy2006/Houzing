@@ -20,7 +20,7 @@ export const Container = styled.div`
     @media screen and (max-width: 450px) {
         width: 343px;
     }
-    
+    position: relative;
     margin-bottom: 20px;
 `;
 
@@ -52,7 +52,7 @@ Details.Item = styled.div`
     justify-content: center;
     align-items: ${({ footer }) => !footer && 'center'};
     flex-direction: ${({ row }) => row ? 'row' : 'column'};
-    gap: ${({row}) => row && '10px'};
+    gap: ${({ row }) => row && '10px'};
 `;
 
 Details.Item.Line = styled.div`
@@ -120,10 +120,52 @@ export const IconBg = styled.div`
     width: 35px;
     height: 35px;
     border-radius: 60px;
-    background-color: ${({clck}) => clck ? 'red' : 'rgba(246, 248, 249, 1)'};
+    background-color: ${({ clck }) => clck ? 'red' : 'rgba(246, 248, 249, 1)'};
     display: flex;
     justify-content: center;
     align-items: center;
     transition: 0.3s all ease-in-out;
     cursor: pointer;
-`; 
+`;
+
+export const MiniImg = styled.img`
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    position: absolute;
+    right: 20px;
+    top: 202px;
+`;
+
+export const FeaturedStatus = styled.div`
+    width: 73px;
+    height: 23px;
+    background-color: rgba(0, 97, 223, 1);
+    color: #fff;
+    font-weight: 600;
+    font-size: 10px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+`;
+
+export const ForSaleStatus = styled.div`
+    width: 71px;
+    height: 23px;
+    background-color: rgba(13, 38, 59, 1);
+    color: #fff;
+    font-weight: 600;
+    font-size: 10px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+`;

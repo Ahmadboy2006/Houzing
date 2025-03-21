@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Img, Content, Details, Icons, Divider, IconBg } from './style';
+import { Container, Img, Content, Details, Icons, Divider, IconBg, MiniImg, FeaturedStatus, ForSaleStatus } from './style';
 import noimg from '../../assets/img/noImg.png';
 
 export const HouseCard = ({ data = {} }) => {
@@ -48,6 +48,7 @@ export const HouseCard = ({ data = {} }) => {
   }, [id]);
 
   const imgSrc = attachments && attachments.length > 0 ? attachments[0].imgPath : noimg;
+  const avatar = attachments && attachments.length > 0 ? attachments[0].avatar : noimg;
 
   return (
     <Container>
@@ -89,6 +90,9 @@ export const HouseCard = ({ data = {} }) => {
           </IconBg>
         </Details.Item>
       </Content>
+      <MiniImg src={avatar} />
+      <FeaturedStatus>FEATURED</FeaturedStatus>
+      <ForSaleStatus>FOR SALE</ForSaleStatus>
     </Container>
   );
 };
