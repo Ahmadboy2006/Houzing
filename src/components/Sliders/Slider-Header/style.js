@@ -3,19 +3,19 @@ import { ReactComponent as ArrowIcon } from '../../../assets/icons/arrow.svg';
 
 export const SliderImg = styled.img`
     width: 100%;
-    height: 571px;
+    height: 81vh;
 
     @media screen and (max-width: 700px) {
-        height: 712px;
+        height: 100vh;
     };
 `;
 
 export const Container = styled.div`
     position: relative;
-    height: 571px;
+    height: 81vh;
 
     @media screen and (max-width: 700px) {
-        height: 712px;
+        height: 100vh !important;
     };
 `;
 
@@ -48,7 +48,7 @@ export const Blur = styled.div`
     background: rgba(0, 0, 0, 0.4);
 
     @media screen and (max-width: 700px) {
-        height: 712px;
+        height: 100vh;
     };
 `;
 
