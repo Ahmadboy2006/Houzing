@@ -348,9 +348,8 @@ const data = [
 
 export const initializeData = () => {
   const storedData = JSON.parse(localStorage.getItem('houseCard')) || [];
-  if (storedData.length === 0) {
-    localStorage.setItem('houseCard', JSON.stringify(data));
-  }
+  localStorage.removeItem('houseCard');
+  localStorage.setItem('houseCard', JSON.stringify(data));
 };
 
 export const getData = () => {
