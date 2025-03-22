@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Img, Content, Details, Icons, Divider, IconBg, MiniImg, FeaturedStatus, ForSaleStatus } from './style';
 import noimg from '../../assets/img/noImg.png';
+import { Link } from 'react-router-dom';
 
 export const HouseCard = ({ data = {} }) => {
   const {
@@ -52,7 +53,7 @@ export const HouseCard = ({ data = {} }) => {
 
   return (
     <Container>
-      <Img src={imgSrc} />
+      <Link to={'/productview'}><Img src={imgSrc} /></Link>
       <Content>
         <div className='subTitle inline'>{description}</div>
         <div className="info">{street && city && country ? `${street}, ${city}, ${country}` : 'Quincy St, Brooklyn, NY, USA'}</div>

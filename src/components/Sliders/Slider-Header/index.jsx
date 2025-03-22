@@ -8,6 +8,7 @@ import { SliderImg, Arrow, Container, Blur, Content } from './style';
 import { Details, Icons } from '../../HouseCard/style';
 import Button from '../../Generic/Button';
 import Header from '../../Header/Index';
+import { Link } from 'react-router-dom';
 
 function Slider() {
   const settings = {
@@ -32,16 +33,16 @@ function Slider() {
 
   const [width, setWidth] = useState(window.innerWidth);
 
-    useEffect(() => {
-        const handleResize = () => {
-            setWidth(window.innerWidth);
-        };
+  useEffect(() => {
+    const handleResize = () => {
+      setWidth(window.innerWidth);
+    };
 
-        window.addEventListener('resize', handleResize);
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return (
     <Container>
@@ -86,7 +87,7 @@ function Slider() {
             </Details.Item>
           </Details>
           <Content.Price>$5,250 / mo</Content.Price>
-          <Button type='dark' width='180' margin='50px 0 0 0'>Read more</Button>
+          <Link to={'/Properties'}><Button type='dark' width='180' margin='50px 0 0 0'>Read more</Button></Link>
         </div>
         {width < 600 && <Header width=' '></Header>}
       </Content>

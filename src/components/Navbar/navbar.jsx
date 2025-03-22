@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import LogoSite from '../../assets/icons/logo.svg'
 import './navbar.css'
 import { Container, Wrapper, Section, LinkSite, Bars, LoginIcon, LogoTitle } from "./styled";
@@ -14,7 +14,7 @@ function Navbar() {
     console.log(state);
   }
 
-  const register = ()=>{
+  const register = () => {
     window.location.href = '/Register';
   }
 
@@ -24,10 +24,12 @@ function Navbar() {
         <Section hideBars={true}>
           <Bars onClick={showNavbar}></Bars>
         </Section>
-        <Section>
-          <img className="logo" src={LogoSite} alt="" />
-          <LogoTitle>Houzing</LogoTitle>
-        </Section>
+        <Link to={'/'}>
+          <Section>
+            <img className="logo" src={LogoSite} alt="" />
+            <LogoTitle>Houzing</LogoTitle>
+          </Section>
+        </Link>
         <Section hideNavbar={true} showNav1={!state} showNav={state}>
           <h1 onClick={showNavbar}>x</h1>
           <LinkSite onClick={showNavbar} to={"/"}>Home</LinkSite>

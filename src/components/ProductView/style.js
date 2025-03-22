@@ -29,7 +29,7 @@ Header.ImgBox.MainImg = styled.img`
     height: 400px;
     grid-column: 1 / span 2;
     grid-row: 1 / span 2;
-    object-fit: cover;
+    object-fit: contain;
 
     @media screen and (max-width: 768px) {
         grid-column: 1 / span 1;
@@ -40,7 +40,7 @@ Header.ImgBox.MainImg = styled.img`
 Header.ImgBox.OtherImg = styled.img`
     width: 100%;
     height: 190px;
-    object-fit: cover;
+    object-fit: contain;
     grid-column: ${({ one, two, three, four }) => 
         one ? '3' : 
         two ? '3' : 
