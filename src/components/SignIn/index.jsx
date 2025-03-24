@@ -29,7 +29,7 @@ function SignIn() {
         <Container>
             <SignBox>
                 <SignBox.Title>Sign in</SignBox.Title>
-                <SignBox.Item ref={login} placeholder='Ali Tufa...' />
+                <SignBox.Item ref={login} placeholder='Login' />
                 <SignBox.Item ref={password} placeholder='Password' />
                 <SignBox.Box>
                     <div className='flex3'>

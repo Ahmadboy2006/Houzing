@@ -32,7 +32,7 @@ RegBox.Title = styled.p`
     line-height: 28px;
     text-align: ${({center}) => center ? 'center' : 'left'};
     color: rgba(13, 38, 59, 1);
-
+    margin: ${({center}) => center && '10px 0 5px 0'};
 `;
 
 RegBox.Item = styled.input`

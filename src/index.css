@@ -280,3 +280,12 @@ b {
 .mb-20 {
     margin-bottom: 20px;
 }
+
+.form {
+    width: 100%;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 50px;
+}
