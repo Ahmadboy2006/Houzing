@@ -75,7 +75,7 @@ function Register() {
         const response = await axios.post("https://house-market-liard.vercel.app/api/auth/register", newData);
         console.log("Ro'yxatdan o'tish muvaffaqiyatli:", response.data);
         alert("Registration successful!");
-        navigate("/signin");
+        navigate("/myprops");
       } catch (error) {
         console.error("Xatolik:", error.response?.data || error.message);
         alert("Ro‘yxatdan o‘tishda xatolik yuz berdi!");
