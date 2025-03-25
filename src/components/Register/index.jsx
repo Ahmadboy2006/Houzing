@@ -74,6 +74,7 @@ function Register() {
       try {
         const response = await axios.post("https://house-market-liard.vercel.app/api/auth/register", newData);
         console.log("Ro'yxatdan o'tish muvaffaqiyatli:", response.data);
+        localStorage.setItem("token", response?.data.accessToken)
         alert("Registration successful!");
         navigate("/myprops");
       } catch (error) {

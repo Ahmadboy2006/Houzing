@@ -8,6 +8,7 @@ import Button from "../Generic/Button/index";
 function Navbar() {
 
   const [state, setState] = useState(false);
+  const [accessToken, setAccessToken] = useState(null);
 
   const showNavbar = () => {
     setState(!state);
@@ -15,7 +16,13 @@ function Navbar() {
   }
 
   const register = () => {
-    window.location.href = '/Register';
+    const token = localStorage.getItem("token")
+    if (token) {
+      window.location.href = '/myprops';
+    } else {
+      window.location.href = '/Register';
+
+    }
   }
 
   return (
@@ -39,7 +46,7 @@ function Navbar() {
         </Section>
         <Section >
           <LoginIcon onClick={register}></LoginIcon>
-          <Button className="login-btn" onClick={register} login='' type='dark'>Login</Button>
+          <Button className="login-btn" onClick={register} login={true} type='dark'>Login</Button>
         </Section>
       </Wrapper>
       <Outlet />
