@@ -46,7 +46,7 @@ function Navbar() {
         </Section>
         <Section >
           <LoginIcon onClick={register}></LoginIcon>
-          <Button className="login-btn" onClick={register} login={true} type='dark'>Login</Button>
+          <Button className="login-btn" onClick={register} login={''} type='dark'>Login</Button>
         </Section>
       </Wrapper>
       <Outlet />
