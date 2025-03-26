@@ -7,7 +7,7 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 130px 0 0 0;
+    padding: 60px 0 0 0;
     gap: 60px;
     border: 1px solid rgba(230, 233, 236, 1);
     box-shadow: 0px 10px 30px 0px rgba(13, 38, 59, 0.05);
@@ -33,6 +33,7 @@ SignBox.Title = styled.p`
     line-height: 28px;
     text-align: ${({center}) => center ? 'center' : 'left'};
     color: rgba(13, 38, 59, 1);
+    margin: ${({center}) => center && '10px 0 5px 0'};
 `;
 
 SignBox.Item = styled.input`

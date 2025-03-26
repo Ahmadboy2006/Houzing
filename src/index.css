@@ -286,6 +286,10 @@ b {
     height: inherit;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    margin-top: 50px;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.underline {
+    text-decoration: underline;
 }

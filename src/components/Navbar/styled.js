@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import { ReactComponent as BarsIcon } from "../../assets/icons/bars.svg";
 import { ReactComponent as LogIcon } from "../../assets/icons/login.svg";
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  margin-top: 60px;
+`;
 export const Wrapper = styled.div`
   height: 64px;
   display: flex;

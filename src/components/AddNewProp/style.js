@@ -4,7 +4,7 @@ import { ReactComponent as download } from '../../assets/icons/download.svg';
 export const Container = styled.div`
     width: 100%;
     height: auto;
-    padding: 100px var(--padding);
+    padding: 30px var(--padding);
     display: flex;
     flex-direction: column;
     gap: 30px;

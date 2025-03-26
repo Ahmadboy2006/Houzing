@@ -9,7 +9,6 @@ export const Wrapper = styled.div`
   padding: 20px var(--padding);
   flex-wrap: wrap;
   background: white;
-  margin-top: 64px;
   position: relative;
   z-index: 1;
   

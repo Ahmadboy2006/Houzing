@@ -5,7 +5,7 @@ import { ReactComponent as star } from '../../assets/icons/star.svg';
 export const Container = styled.div`
     width: 100%;
     height: auto;
-    padding: 100px var(--padding);
+    padding: 30px var(--padding);
 `;
 
 export const Header = styled.div`

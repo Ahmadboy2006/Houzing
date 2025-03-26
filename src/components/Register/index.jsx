@@ -72,11 +72,10 @@ function Register() {
       };
 
       try {
-        const response = await axios.post("https://house-market-liard.vercel.app/api/auth/register", newData);
+        const response = await axios.post("https://houzing-api.up.railway.app/api/auth/register", newData);
         console.log("Ro'yxatdan o'tish muvaffaqiyatli:", response.data);
-        localStorage.setItem("token", response?.data.accessToken)
         alert("Registration successful!");
-        navigate("/myprops");
+        navigate("/signin");
       } catch (error) {
         console.error("Xatolik:", error.response?.data || error.message);
         alert("Ro‘yxatdan o‘tishda xatolik yuz berdi!");
@@ -91,7 +90,7 @@ function Register() {
       <RegBox>
         <RegBox.Title>Register</RegBox.Title>
         <form onSubmit={register} className='form' >
-          <RegBox.Item ref={login} placeholder='Login' />
+          <RegBox.Item type="text" ref={login} placeholder='Login' />
           {loginErr && <p style={{ color: 'red' }}>Login must be 5-15 characters long and contain only letters and numbers</p>}
 
           <RegBox.Item type="text" ref={firstName} placeholder='First Name' />
@@ -101,8 +100,8 @@ function Register() {
           <RegBox.Item type="email" ref={mail} placeholder='Email' />
           {emailErr && <p style={{ color: 'red' }}>Email should end with @gmail.com</p>}
 
-          <RegBox.Item ref={password1} placeholder='Password' />
-          <RegBox.Item ref={password2} placeholder='Re-enter password' />
+          <RegBox.Item type="password" ref={password1} placeholder='Password' />
+          <RegBox.Item type="password" ref={password2} placeholder='Re-enter password' />
           {passwordErr && <p style={{ color: 'red' }}>password must contain at least 1 uppercase letter and a number and must be between 7-15 characters</p>}
 
           <Button type='submit' width='100%'>Register</Button>

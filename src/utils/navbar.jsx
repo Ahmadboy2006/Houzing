@@ -1,20 +1,21 @@
 import { v4 as uuidv4 } from 'uuid';
-import Home from "../pages/home/Index";
-import Properties from "../pages/properties/Index";
-import Contacts from '../pages/contacts/Index';
-import Favourites from '../pages/favourites/Index';
-import AddNewProps from '../pages/addNewProp/Index';
-import MyProps from '../pages/MyProps/Index';
-import Register from '../pages/Register/Index';
-import SignIn from '../pages/SignIn/Index';
+import HomePage from "../pages/home/Index";
+import PropertiesPage from "../pages/properties/Index";
+import ContactsPage from '../pages/contacts/Index';
+import FavouritesPage from '../pages/favourites/Index';
+import AddNewPropsPage from '../pages/addNewProp/Index';
+import MyPropsPage from '../pages/MyProps/Index';
+import RegisterPage from '../pages/Register/Index';
+import SignInPage from '../pages/SignIn/Index';
 import ProductViewPage from '../pages/productView/Index';
+import ProfilePage from '../pages/profile/index';
 
 export const navbar = [
     {
         id: uuidv4(),
         title: "Home",
         path: "/",
-        element: <Home/>,
+        element: <HomePage />,
         private: false,
         hidden: false
     },
@@ -22,7 +23,7 @@ export const navbar = [
         id: uuidv4(),
         title: "Properties",
         path: "/properties",
-        element: <Properties/>,
+        element: <PropertiesPage />,
         private: false,
         hidden: false
     },
@@ -30,7 +31,7 @@ export const navbar = [
         id: uuidv4(),
         title: "",
         path: "/contacts",
-        element: <Contacts/>,
+        element: <ContactsPage />,
         private: false,
         hidden: true,
     },
@@ -38,7 +39,7 @@ export const navbar = [
         id: uuidv4(),
         title: "Favourites",
         path: "/favourites",
-        element: <Favourites/>,
+        element: <FavouritesPage/>,
         private: false,
         hidden: false,
     },
@@ -46,7 +47,7 @@ export const navbar = [
         id: uuidv4(),
         title: "AddNewProperties",
         path: "/addnewprops",
-        element: <AddNewProps/>,
+        element: <AddNewPropsPage />,
         private: false,
         hidden: true,
     },
@@ -54,7 +55,7 @@ export const navbar = [
         id: uuidv4(),
         title: "MyProperties",
         path: "/myprops",
-        element: <MyProps/>,
+        element: <MyPropsPage />,
         private: false,
         hidden: true,
     },
@@ -62,7 +63,7 @@ export const navbar = [
         id: uuidv4(),
         title: "Register",
         path: "/register",
-        element: <Register/>,
+        element: <RegisterPage />,
         private: false,
         hidden: true,
     },
@@ -70,7 +71,7 @@ export const navbar = [
         id: uuidv4(),
         title: "SignIn",
         path: "/signin",
-        element: <SignIn/>,
+        element: <SignInPage />,
         private: false,
         hidden: true,
     },
@@ -78,7 +79,15 @@ export const navbar = [
         id: uuidv4(),
         title: "ProductView",
         path: "/productview",
-        element: <ProductViewPage/>,
+        element: <ProductViewPage />,
+        private: false,
+        hidden: true,
+    },
+    {
+        id: uuidv4(),
+        title: "Profile",
+        path: "/profile",
+        element: <ProfilePage />,
         private: false,
         hidden: true,
     }

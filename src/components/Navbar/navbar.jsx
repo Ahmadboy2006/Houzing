@@ -1,28 +1,35 @@
-import React, { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import LogoSite from '../../assets/icons/logo.svg'
 import './navbar.css'
 import { Container, Wrapper, Section, LinkSite, Bars, LoginIcon, LogoTitle } from "./styled";
 import Button from "../Generic/Button/index";
 
 function Navbar() {
-
+  const navigate = useNavigate()
   const [state, setState] = useState(false);
-  const [accessToken, setAccessToken] = useState(null);
+  const [token, setToken] = useState(localStorage.getItem("token"));
+
+  useEffect(() => {
+    const handleStorageChange = () => {
+      setToken(localStorage.getItem("token"));
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+    return () => window.removeEventListener("storage", handleStorageChange);
+  }, []);
 
   const showNavbar = () => {
     setState(!state);
     console.log(state);
-  }
+  };
 
-  const register = () => {
-    const token = localStorage.getItem("token")
-    if (token) {
-      window.location.href = '/myprops';
-    } else {
-      window.location.href = '/Register';
+  const signIn = () => {
+    navigate("/signin")
+  };
 
-    }
+  const profile = () => {
+    navigate("/profile")
   }
 
   return (
@@ -45,8 +52,11 @@ function Navbar() {
           <LinkSite onClick={showNavbar} to={"/favourites"}>Favourites</LinkSite>
         </Section>
         <Section >
-          <LoginIcon onClick={register}></LoginIcon>
-          <Button className="login-btn" onClick={register} login={''} type='dark'>Login</Button>
+          <LoginIcon onClick={signIn}></LoginIcon>
+          {!token ?
+            <Button className="login-btn" onClick={signIn} login={''} type='dark'>Login</Button>
+            :
+            <Button className="login-btn" onClick={profile} login={''} type='dark'>Profile</Button>}
         </Section>
       </Wrapper>
       <Outlet />
