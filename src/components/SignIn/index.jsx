@@ -39,7 +39,7 @@ function SignIn() {
                 localStorage.setItem("token", token);
                 window.dispatchEvent(new Event("storage"));
                 alert("Login muvaffaqiyatli!");
-                navigate("/myprops");
+                navigate("/");
             } else {
                 alert("Token olinmadi, login yoki parol noto‘g‘ri!");
             }
