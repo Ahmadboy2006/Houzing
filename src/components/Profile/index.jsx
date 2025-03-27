@@ -6,10 +6,11 @@ import { FaUser } from "react-icons/fa6";
 
 function Profile() {
   const navigate = useNavigate();
-  const [userData, setUserData] = useState()
-  const [name, setName] = useState("Ism")
-  const [telephone, setTelephone] = useState("Tel raqam")
-  const [email, setEmail] = useState("Email")
+  const [name, setName] = useState("")
+  const [telephone, setTelephone] = useState("")
+  const [email, setEmail] = useState("")
+  const [last_name, setLast_Name] = useState("")
+  const [password, setPassword] = useState("******")
   const [showSignOut, setShowSignOut] = useState(false);
 
   const toggleSignOut = () => {
@@ -22,22 +23,27 @@ function Profile() {
     navigate("/");
   }
 
-  function userPorfile(params) {
-    const token = localStorage.getItem('token');
-    console.log(token);
+  const getUser = async () => {
+    const token = localStorage.getItem("token");
 
-    if (token) {
-      const response = axios.get('https://houzing-api.up.railway.app/api/users/profile', {
+    try {
+      const response = await axios.get("https://houzing-api.up.railway.app/api/users/profile", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log(response);
 
+      console.log(response.data.data.email);
+      setName(response.data.data.first_name)
+setTelephone(response.data.data.login)
+setEmail(response.data.data.email)
+setLast_Name(response.data.data.last_name)
+    } catch (error) {
+      console.error("Foydalanuvchini olishda xatolik:", error);
     }
-  }
+  };
   useEffect(() => {
-    // userPorfile()
+    getUser()
   }, [])
 
   return (
@@ -48,13 +54,18 @@ function Profile() {
         <div className="form-section">
           <div className="input-group">
             <label>First name</label>
-            <input type="text" value={name} placeholder="Enter first name" disabled/>
+            <input type="text" value={name} placeholder="Enter first name" disabled />
+          </div>
+          <div className="input-group">
+            <label>Last name</label>
+            <input type="text" value={last_name} placeholder="Last name" disabled />
           </div>
 
           <div className="input-group">
-            <label>Phone number</label>
-            <input type="text" value={telephone} placeholder="Enter phone number" disabled/>
+            <label>Login name</label>
+            <input type="text" value={telephone} placeholder="Enter phone number" disabled />
           </div>
+
 
           {/* <div className="input-group">
             <label>Language</label>
@@ -71,14 +82,19 @@ function Profile() {
             <label>Email address</label>
             <input type="email" value={email} placeholder="Email" disabled />
           </div>
-
           <div className="input-group">
             <label>Password</label>
-            <button className="change-pass-btn">Change password</button>
+            <input type="password" value={password} placeholder="Password" disabled />
+          </div>
+
+
+          <div className="input-group">
+            <label>Infos</label>
+            <button className="change-pass-btn">Update infos</button>
           </div>
         </div>
 
-        
+
       </div>
 
       <div className="save-btn-wrapper">
