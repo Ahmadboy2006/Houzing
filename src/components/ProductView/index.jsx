@@ -13,8 +13,20 @@ import Avatar from '../../assets/img/avatar1.png';
 import locationImg from '../../assets/img/location.png';
 import { Carousel } from 'antd';
 import { Arrow } from '../Sliders/Slider-Prop/style';
+import { useNavigate } from 'react-router-dom';
 
 function ProductView() {
+    const [token, setToken] = useState(localStorage.getItem("token"));
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const handleStorageChange = () => {
+            setToken(localStorage.getItem("token"));
+        };
+
+        window.addEventListener("storage", handleStorageChange);
+        return () => window.removeEventListener("storage", handleStorageChange);
+    }, []);
 
     useEffect(() => {
         const viewData = localStorage.getItem('viewData');
@@ -36,21 +48,27 @@ function ProductView() {
         propDetails = [],
         salePrice,
         description,
-        street
+        rooms,
+        sort
     } = data;
 
     const Img1 = attachments[0]?.imgPath;
-    const { address, state, city, zipcode, area, country } = location[0] || {};
+    const { street, state, city, zipcode, area, country } = location[0] || {};
     const { id, price, size, yearBuild, beds, baths, garages, garageSize, type, status } = propDetails[0] || {};
 
     const [isLiked, setIsLiked] = useState(localStorage.getItem(`${id}`) !== null);
 
     const like = () => {
-        setIsLiked(!isLiked);
-        if (!isLiked) {
-            localStorage.setItem(`${id}`, JSON.stringify(data));
+        if (token) {
+            setIsLiked(!isLiked);
+            if (!isLiked) {
+                localStorage.setItem(`${id}`, JSON.stringify(data));
+            } else {
+                localStorage.removeItem(`${id}`);
+            }
         } else {
-            localStorage.removeItem(`${id}`);
+            localStorage.setItem("liked", true);
+            navigate("/signin");
         }
     };
 
@@ -260,7 +278,7 @@ function ProductView() {
                         <Location.Content.Item>
                             <div className='flex3'>
                                 <Header.Content.Desc.Title message>Address:</Header.Content.Desc.Title>
-                                <Location.Content.Item.Text>{address}</Location.Content.Item.Text>
+                                <Location.Content.Item.Text>{street}</Location.Content.Item.Text>
                             </div>
                             <div className='flex3'>
                                 <Header.Content.Desc.Title message>State/County:</Header.Content.Desc.Title>

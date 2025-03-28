@@ -382,3 +382,5 @@ const fetchProperties = async () => {
     console.error("Xatolik yuz berdi:", error.response?.data || error.message);
   }
 };
+
+// fetchProperties()

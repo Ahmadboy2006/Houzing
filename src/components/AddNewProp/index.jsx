@@ -90,6 +90,8 @@ function AddNewProp() {
         reader.readAsDataURL(files[0]);
     };
 
+    
+
     return (
         <>
             <Container>

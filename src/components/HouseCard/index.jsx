@@ -1,21 +1,34 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Container, Img, Content, Details, Icons, Divider, IconBg, MiniImg, FeaturedStatus, ForSaleStatus } from './style';
 import noimg from '../../assets/img/noImg.png';
 import { Link } from 'react-router-dom';
 
 export const HouseCard = ({ data = {} }) => {
+  const [token, setToken] = useState(localStorage.getItem("token"));
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleStorageChange = () => {
+      setToken(localStorage.getItem("token"));
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+    return () => window.removeEventListener("storage", handleStorageChange);
+  }, []);
+
   const {
     attachments,
     location = [],
     propDetails = [],
     salePrice,
-    description,
-    street
+    description
   } = data;
 
   const {
     city,
-    country
+    country,
+    street
   } = location[0] || {};
 
   const {
@@ -28,20 +41,23 @@ export const HouseCard = ({ data = {} }) => {
   } = propDetails[0] || {};
 
   const [isLiked, setIsLiked] = useState(localStorage.getItem(`house-${id}`) !== null);
-
   const like = () => {
-    setIsLiked(!isLiked);
-    if (!isLiked) {
-      localStorage.setItem(id, JSON.stringify(data));
+    if (token) {
+      setIsLiked(!isLiked);
+      if (!isLiked) {
+        localStorage.setItem(id, JSON.stringify(data));
+      } else {
+        localStorage.removeItem(id);
+      }
     } else {
-      localStorage.removeItem(id);
+      navigate("/signin");
     }
   };
 
   const view = (value) => {
     localStorage.removeItem('viewData');
     localStorage.setItem('viewData', JSON.stringify(value));
-    window.location.href = '/productview';
+    navigate('/productview');
   };
 
   useEffect(() => {

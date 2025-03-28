@@ -18,25 +18,31 @@ function SignIn() {
 
     const handleSignIn = async (e) => {
         e.preventDefault();
-    
+
         if (!login.current?.value || !password.current?.value) {
             alert("Login va parolni kiriting!");
             return;
         }
-    
+
         try {
             const response = await axios.post("https://houzing-api.up.railway.app/api/auth/login", {
                 login: login.current.value,
                 password: password.current.value
             });
-    
+
             const token = response.data?.accessToken;
-    
+
             if (token) {
                 localStorage.setItem("token", token);
                 window.dispatchEvent(new Event("storage"));
                 alert("Login muvaffaqiyatli!");
-                navigate("/");
+                const liked = localStorage.getItem("liked")
+                if (liked) {
+                    localStorage.removeItem("liked")
+                    navigate("/productview");
+                } else {
+                    navigate("/");
+                }
             } else {
                 alert("Token olinmadi, login yoki parol noto‘g‘ri!");
             }

@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
+import React, { useState, useEffect } from 'react';
 import HomePage from "../pages/home/Index";
 import PropertiesPage from "../pages/properties/Index";
 import ContactsPage from '../pages/contacts/Index';
@@ -10,7 +11,19 @@ import SignInPage from '../pages/SignIn/Index';
 import ProductViewPage from '../pages/productView/Index';
 import ProfilePage from '../pages/profile/index';
 
-export const navbar = [
+export function useNavbar() {
+  const [token, setToken] = useState(localStorage.getItem("token"));
+
+  useEffect(() => {
+    const handleStorageChange = () => {
+      setToken(localStorage.getItem("token"));
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+    return () => window.removeEventListener("storage", handleStorageChange);
+  }, []);
+
+  return [
     {
         id: uuidv4(),
         title: "Home",
@@ -29,11 +42,11 @@ export const navbar = [
     },
     {
         id: uuidv4(),
-        title: "",
+        title: "Contacts",
         path: "/contacts",
         element: <ContactsPage />,
         private: false,
-        hidden: true,
+        hidden: false,
     },
     {
         id: uuidv4(),
@@ -48,16 +61,16 @@ export const navbar = [
         title: "AddNewProperties",
         path: "/addnewprops",
         element: <AddNewPropsPage />,
-        private: false,
-        hidden: true,
+        private: true,
+        hidden: !token,
     },
     {
         id: uuidv4(),
         title: "MyProperties",
         path: "/myprops",
         element: <MyPropsPage />,
-        private: false,
-        hidden: true,
+        private: true,
+        hidden: !token,
     },
     {
         id: uuidv4(),
@@ -65,7 +78,7 @@ export const navbar = [
         path: "/register",
         element: <RegisterPage />,
         private: false,
-        hidden: true,
+        hidden: false,
     },
     {
         id: uuidv4(),
@@ -73,7 +86,7 @@ export const navbar = [
         path: "/signin",
         element: <SignInPage />,
         private: false,
-        hidden: true,
+        hidden: false,
     },
     {
         id: uuidv4(),
@@ -81,7 +94,7 @@ export const navbar = [
         path: "/productview",
         element: <ProductViewPage />,
         private: false,
-        hidden: true,
+        hidden: false,
     },
     {
         id: uuidv4(),
@@ -89,6 +102,7 @@ export const navbar = [
         path: "/profile",
         element: <ProfilePage />,
         private: false,
-        hidden: true,
+        hidden: !token,
     }
-];
+  ];
+}
