@@ -19,9 +19,6 @@ function SignIn() {
     const handleSignIn = async (e) => {
         e.preventDefault();
     
-        console.log("Login:", login.current?.value);
-        console.log("Password:", password.current?.value);
-    
         if (!login.current?.value || !password.current?.value) {
             alert("Login va parolni kiriting!");
             return;

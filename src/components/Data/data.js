@@ -4,6 +4,7 @@ import SliderImg2 from '../../assets/img/slider1-4.jpg';
 import Avatar1 from '../../assets/img/avatar1.png';
 import Avatar2 from '../../assets/img/avatar2.png';
 import Avatar3 from '../../assets/img/avatar3.png';
+// import axios from 'axios';
 
 
 const data = [
@@ -355,3 +356,31 @@ export const getData = () => {
   const storedData = JSON.parse(localStorage.getItem('houseCard')) || [];
   return storedData;
 };
+
+// const fetchProperties = async () => {
+//   try {
+//     const token = localStorage.getItem("token");
+//     console.log(token);
+
+//     if (!token) {
+//       console.error("Token topilmadi, iltimos, qayta login qiling.");
+//       return;
+//     }
+
+//     const response = await axios.get(
+//       "https://houzing-api.up.railway.app/api/propertys/all",
+//       {
+//         headers: {
+//           "Authorization": `Bearer ${token}`,
+//           "Accept": "*/*",
+//         },
+//       }
+//     );
+
+//     console.log("Propertylar:", response.data);
+//   } catch (error) {
+//     console.error("Xatolik yuz berdi:", error.response?.data || error.message);
+//   }
+// };
+
+// fetchProperties();

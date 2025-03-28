@@ -13,6 +13,10 @@ function Profile() {
   return (
     <div>
       <h2>Profile</h2>
+      <br />
+      <input type="file" onChange={(e) => uploadFile(e.target.files[0])} />
+      <br />
+      <br />
       <button onClick={signOut}>Sign Out</button>
     </div>
   )
