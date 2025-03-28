@@ -293,3 +293,9 @@ b {
 .underline {
     text-decoration: underline;
 }
+
+.login-btn {
+    @media screen and (max-width: 600px) {
+        display: none !important;
+    }
+}

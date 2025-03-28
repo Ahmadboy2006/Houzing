@@ -4,6 +4,7 @@ import LogoSite from '../../assets/icons/logo.svg'
 import './navbar.css'
 import { Container, Wrapper, Section, LinkSite, Bars, LoginIcon, LogoTitle } from "./styled";
 import Button from "../Generic/Button/index";
+import Profile from "../Profile";
 
 function Navbar() {
   const navigate = useNavigate()
@@ -52,11 +53,17 @@ function Navbar() {
           <LinkSite onClick={showNavbar} to={"/favourites"}>Favourites</LinkSite>
         </Section>
         <Section >
-          <LoginIcon onClick={signIn}></LoginIcon>
           {!token ?
-            <Button className="login-btn" onClick={signIn} login={''} type='dark'>Login</Button>
+            <>
+              <LoginIcon onClick={signIn}></LoginIcon>
+              <Button onClick={signIn} loginBtn type='dark'>Login</Button>
+            </>
             :
-            <Button className="login-btn" onClick={profile} login={''} type='dark'>Profile</Button>}
+            <>
+              <LoginIcon onClick={profile}></LoginIcon>
+              <Button onClick={profile} loginBtn type='dark'>Profile</Button>
+            </>
+          }
         </Section>
       </Wrapper>
       <Outlet />

@@ -33,11 +33,10 @@ function Profile() {
         },
       });
 
-      console.log(response.data.data.email);
       setName(response.data.data.first_name)
-setTelephone(response.data.data.login)
-setEmail(response.data.data.email)
-setLast_Name(response.data.data.last_name)
+      setTelephone(response.data.data.login)
+      setEmail(response.data.data.email)
+      setLast_Name(response.data.data.last_name)
     } catch (error) {
       console.error("Foydalanuvchini olishda xatolik:", error);
     }

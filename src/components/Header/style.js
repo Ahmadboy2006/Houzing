@@ -100,6 +100,7 @@ SearchModal.Item = styled.li`
   background-color: #fff;
   display: flex;
   align-items: center;
+  color: black;
   cursor: pointer;
   &:hover{
     background-color: #f2f2f2;

@@ -3,6 +3,7 @@ import { Wrapper, Section, SearchInput, Filter, Search, SearchModal } from './st
 import Button from "../Generic/Button";
 import { getData } from '../Data/data';
 import Modal from '../Modal';
+import { useNavigate } from 'react-router-dom';
 
 function Header({ none, width, onSearch }) {
     const search = useRef();
@@ -11,6 +12,7 @@ function Header({ none, width, onSearch }) {
     const [initialData, setInitialData] = useState([])
     const [houseData, setHouseData] = useState([]);
     const [state, setState] = useState(false);
+    const navigate = useNavigate()
 
     useEffect(() => {
         const data = getData();
@@ -52,7 +54,7 @@ function Header({ none, width, onSearch }) {
     const onView = (value) =>{
         localStorage.removeItem('viewData');
         localStorage.setItem('viewData', JSON.stringify(value));
-        window.location.href = '/productview';
+        navigate('/productview');
     }
 
     return (

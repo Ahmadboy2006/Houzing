@@ -49,7 +49,7 @@ export const Container = styled.button`
     margin: ${({ margin })=>(margin && `${margin}px`)};
 
     @media screen and (max-width: 600px) {
-        display: ${({ login }) => login ? 'none' : ' '};
+        display: ${({ loginBtn }) => loginBtn && 'none'};
     }
 
     cursor: pointer;
