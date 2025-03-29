@@ -11,7 +11,7 @@ function Profile() {
   const [email, setEmail] = useState("")
   const [last_name, setLast_Name] = useState("")
   const [password, setPassword] = useState("******")
-  const [showSignOut, setShowSignOut] = useState(false);
+  const [showSignOut, setShowSignOut] = useState(true);
 
   const toggleSignOut = () => {
     setShowSignOut(prev => !prev);
@@ -54,16 +54,16 @@ function Profile() {
         <div className="form-section">
           <div className="input-group">
             <label>First name</label>
-            <input type="text" value={name} placeholder="Enter first name" disabled />
+            <input type="text" value={name} placeholder="Enter first name" disabled={showSignOut} />
           </div>
           <div className="input-group">
             <label>Last name</label>
-            <input type="text" value={last_name} placeholder="Last name" disabled />
+            <input type="text" value={last_name} placeholder="Last name" disabled={showSignOut} />
           </div>
 
           <div className="input-group">
             <label>Login name</label>
-            <input type="text" value={telephone} placeholder="Enter phone number" disabled />
+            <input type="text" value={telephone} placeholder="Enter login name" disabled={showSignOut} />
           </div>
 
 
@@ -80,17 +80,20 @@ function Profile() {
         <div className="form-section">
           <div className="input-group">
             <label>Email address</label>
-            <input type="email" value={email} placeholder="Email" disabled />
+            <input type="email" value={email} placeholder="Email" disabled={showSignOut} />
           </div>
           <div className="input-group">
             <label>Password</label>
-            <input type="password" value={password} placeholder="Password" disabled />
+            <input type="password" value={password} placeholder="Password" disabled={showSignOut} />
           </div>
 
 
           <div className="input-group">
             <label>Infos</label>
-            <button className="change-pass-btn">Update infos</button>
+            <div className="infos-btns">
+              <button onClick={() => { setShowSignOut(!showSignOut) }} className="change-pass-btn">Update infos</button>
+              {!showSignOut && <button className='update-save'>Save</button>}
+            </div>
           </div>
         </div>
 
@@ -99,7 +102,7 @@ function Profile() {
 
       <div className="save-btn-wrapper">
         <button onClick={signOut} className="signout-btn">Sign out</button>
-        <Link to={'/myprops'}><button className="save-btn">My products</button></Link>
+        <Link to={'/myprops'}><button className="save-btn">My properties</button></Link>
       </div>
     </div>
   )
