@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { Wrapper, Section, SearchInput, Filter, Search, SearchModal } from './style';
 import Button from "../Generic/Button";
 import { getData } from '../Data/data';
@@ -45,17 +45,31 @@ function Header({ none, width, onSearch }) {
 
     const handleSubmit = (data) => {
         setSortData(data)
-    }
+    };
 
-    const handleSearch = () => {
+    const handleSearch = useCallback(() => {
         onSearch(sortData);
-    }
+    }, [sortData, onSearch]);
 
-    const onView = (value) =>{
+    const onView = (value) => {
         localStorage.removeItem('viewData');
         localStorage.setItem('viewData', JSON.stringify(value));
         navigate('/productview');
-    }
+    };
+
+    useEffect(() => {
+        const handleKeyPress = (event) => {
+            if (event.shiftKey && event.key.toLowerCase() === "s") {
+                event.preventDefault();
+                handleSearch();
+            }
+        };
+
+        window.addEventListener("keydown", handleKeyPress);
+        return () => {
+            window.removeEventListener("keydown", handleKeyPress);
+        }
+    }, [handleSearch])
 
     return (
         <Wrapper width={width} none={none}>
@@ -69,7 +83,7 @@ function Header({ none, width, onSearch }) {
                 {searchData.length > 0 &&
                     <SearchModal>
                         {houseData.map((value, index) => (
-                            <SearchModal.Item onClick={()=>onView(value)} key={index}>{value.location[0].city}, {value.location[0].country}, {value.description}</SearchModal.Item>
+                            <SearchModal.Item onClick={() => onView(value)} key={index}>{value.location[0].city}, {value.location[0].country}, {value.description}</SearchModal.Item>
                         ))}
                     </SearchModal>}
             </Section>

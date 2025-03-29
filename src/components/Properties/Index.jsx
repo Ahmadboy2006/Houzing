@@ -35,14 +35,15 @@ export const Properties = () => {
         const propDetails = house.propDetails[0] || {};
 
         return (
-            (!sortData.city || location.city.toLowerCase().includes(sortData.city.toLowerCase())) &&
-            (!sortData.country || location.country.toLowerCase().includes(sortData.country.toLowerCase())) &&
-            (!sortData.description || house.description.toLowerCase().includes(sortData.description.toLowerCase())) &&
-            (!sortData.zip || location.zipcode.toLowerCase().includes(sortData.zip.toLowerCase())) &&
-            (!sortData.rooms || propDetails.beds >= parseInt(sortData.rooms)) &&
-            (!sortData.size || propDetails.size >= parseInt(sortData.size)) &&
-            (!sortData.minPrice || house.salePrice >= parseInt(sortData.minPrice)) &&
-            (!sortData.maxPrice || house.salePrice <= parseInt(sortData.maxPrice))
+          (!sortData.city || location.city.toLowerCase().includes(sortData.city.toLowerCase())) &&
+          (!sortData.country || location.country.toLowerCase().includes(sortData.country.toLowerCase())) &&
+          (!sortData.state || location.state.toLowerCase().includes(sortData.state.toLowerCase())) &&
+          (!sortData.zip || location.zipcode === parseInt(sortData.zip)) &&
+          (!sortData.rooms || parseInt(house.rooms) >= parseInt(sortData.rooms)) &&
+          (!sortData.size || parseInt(propDetails.size) >= parseInt(sortData.size)) &&
+          (!sortData.type || propDetails.type.toLowerCase().includes(sortData.type.toLowerCase())) &&
+          (!sortData.minPrice || parseInt(house.salePrice) >= parseInt(sortData.minPrice)) &&
+          (!sortData.maxPrice || parseInt(house.salePrice) <= parseInt(sortData.maxPrice))    
         );
     });
     setFilteredData(sortedData);

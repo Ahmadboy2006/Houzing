@@ -35,7 +35,6 @@ const data = [
     salePrice: 2500,
     description: "Beautiful house in San Francisco",
     rooms: 5,
-    sort: "priceLowToHigh"
   },
   {
     homeIndex: 421,
@@ -63,7 +62,6 @@ const data = [
     salePrice: 3200,
     description: "Spacious family home in Austin",
     rooms: 7,
-    sort: "priceHighToLow"
   },
   {
     homeIndex: 582,
@@ -91,7 +89,6 @@ const data = [
     salePrice: 4500,
     description: "Luxurious apartment in Seattle",
     rooms: 4,
-    sort: "newest"
   },
   {
     homeIndex: 110,
@@ -119,7 +116,6 @@ const data = [
     salePrice: 2800,
     description: "Cozy home in Denver",
     rooms: 5,
-    sort: "priceLowToHigh"
   },
   {
     homeIndex: 253,
@@ -147,7 +143,6 @@ const data = [
     salePrice: 5500,
     description: "Spacious villa in Miami",
     rooms: 9,
-    sort: "priceHighToLow"
   },
   {
     homeIndex: 374,
@@ -175,7 +170,6 @@ const data = [
     salePrice: 3750,
     description: "Modern home in Atlanta",
     rooms: 5,
-    sort: "newest"
   },
   {
     homeIndex: 478,
@@ -203,7 +197,6 @@ const data = [
     salePrice: 6000,
     description: "Luxurious house in Chicago",
     rooms: 9,
-    sort: "priceHighToLow"
   },
   {
     homeIndex: 198,
@@ -231,7 +224,6 @@ const data = [
     salePrice: 2900,
     description: "Cozy apartment in New York",
     rooms: 3,
-    sort: "priceLowToHigh"
   },
   {
     homeIndex: 540,
@@ -259,7 +251,6 @@ const data = [
     salePrice: 4100,
     description: "Spacious house in Boston",
     rooms: 7,
-    sort: "newest"
   },
   {
     homeIndex: 609,
@@ -287,7 +278,6 @@ const data = [
     salePrice: 5100,
     description: "Luxury villa in San Diego",
     rooms: 11,
-    sort: "priceHighToLow"
   },
   {
     homeIndex: 325,
@@ -315,7 +305,6 @@ const data = [
     salePrice: 3200,
     description: "Modern apartment in Orlando",
     rooms: 5,
-    sort: "priceLowToHigh"
   },
   {
     homeIndex: 217,
@@ -343,7 +332,6 @@ const data = [
     salePrice: 2000,
     description: "Cozy condo in Houston",
     rooms: 4,
-    sort: "newest"
   }
 ];
 
